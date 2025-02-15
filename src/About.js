@@ -1,6 +1,6 @@
 import './App.css';
 
-function App() {
+function About() {
   return (
     <div> 
       <div className="header">
@@ -10,12 +10,10 @@ function App() {
       </div>
     <div className="App">
       <p>
-        This is a sample app for the WAForge Hackathon
+       This is an ABOUT US page
       </p>
-      <a href="/about">About</a>
     </div>
   </div>   
   );
 }
-
-export default App;
+export default About;
