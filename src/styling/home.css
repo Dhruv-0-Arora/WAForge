@@ -14,13 +14,7 @@
     overflow: hidden;
 }
 
-.globalPlaneImage {
-    max-width: 75vw;
-    height: auto;
-}
-
 .tagline {
-    font-size: 30px;
     font-weight: bold;
     color: gray;
     justify-self: center;

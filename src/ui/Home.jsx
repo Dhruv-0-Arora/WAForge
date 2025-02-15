@@ -5,18 +5,16 @@ import globePlane from "../assets/flight.png"; // The center image
 
 export default function Home() {
     return (
-        <div className="flex items-center justify-center text-center bg-white">
+        <div>
             {/* "ENVORA" with an image mask */}
             <h1
-                className="envora font-bold text-transparent hover:scale-120"
+                className="envora font-bold select-none brightness-80"
                 style={{
                     backgroundImage: `url(${imageMask})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     webkitTextFillColor: "transparent",
                     webkitBackgroundClip: "text",
-                    userSelect: "none",
-                    filter: "brightness(0.8)",
                 }}
             >
                 ENVORA
@@ -27,12 +25,12 @@ export default function Home() {
                 <img
                     src={globePlane}
                     alt="Earth with airplane"
-                    className="globalPlaneImage"
+                    className="max-w-[75vw] h-auto"
                 />
             </div>
 
             {/* Tagline */}
-            <p className="tagline font-bold text-gray-700 font-bold">
+            <p className="tagline text-3xl font-bold text-gray-700 font-bold">
                 Your Guide to Sustainable Living
             </p>
         </div>
