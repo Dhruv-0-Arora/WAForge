@@ -1,14 +1,16 @@
 import React from "react";
-import "../styling/home.css";
 import imageMask from "../assets/image.jpeg"; // The image used as text mask
 import globePlane from "../assets/flight.png"; // The center image
 
 export default function Home() {
     return (
         <div>
+            {/* Space */}
+            <div className="h-[5vh]"></div>
+
             {/* "ENVORA" with an image mask */}
             <h1
-                className="envora font-bold select-none brightness-80"
+                className="flex justify-center align-center text-center text-[96px] font-bold select-none brightness-80"
                 style={{
                     backgroundImage: `url(${imageMask})`,
                     backgroundSize: "cover",
@@ -21,7 +23,7 @@ export default function Home() {
             </h1>
 
             {/* Center image */}
-            <div className="globalPlane h-auto">
+            <div className="flex justify-center align-center h-auto">
                 <img
                     src={globePlane}
                     alt="Earth with airplane"
@@ -30,7 +32,7 @@ export default function Home() {
             </div>
 
             {/* Tagline */}
-            <p className="tagline text-3xl font-bold text-gray-700 font-bold">
+            <p className="text-center text-3xl font-bold text-gray-500 font-bold">
                 Your Guide to Sustainable Living
             </p>
         </div>
