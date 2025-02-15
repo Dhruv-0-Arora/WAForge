@@ -1,0 +1,28 @@
+.envora {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 96px;
+    text-size-adjust: 100%;
+}
+
+.globalPlane {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.globalPlaneImage {
+    max-width: 75vw;
+    height: auto;
+}
+
+.tagline {
+    font-size: 30px;
+    font-weight: bold;
+    color: gray;
+    justify-self: center;
+    align-items: center;
+}
