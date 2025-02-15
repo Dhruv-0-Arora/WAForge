@@ -1,12 +1,14 @@
 import './App.css';
+import FlightTakeoff from './Flight.png'
 
 function App() {
   return (
     <div> 
       <div className="header">
-        <p>
-          WAForge Hackathon App
-        </p>
+        <h1>
+          Your Guide to Sustainable Living
+        </h1>
+        <img src = {FlightTakeoff} alt= "" className = "center" height = {300} width = {300}/>
       </div>
     <div className="App">
       <p>
