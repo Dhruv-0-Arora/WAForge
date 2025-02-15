@@ -17,3 +17,119 @@
     align-items: center;
     height: 100vh;
 }
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* About Page Container */
+.about-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.header {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 2.8em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* About Section Styling */
+.about-section {
+    margin-bottom: 40px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2em;
+    color: #2E8B57;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Mission and Vision Text */
+.mission-text, .vision-text {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+    text-align: justify;
+    margin-top: 15px;
+    font-family: 'Georgia', serif;
+}
+
+.mission-text::before, .vision-text::before {
+    content: "“";
+    font-size: 3em;
+    color: #4CAF50;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.mission-text::after, .vision-text::after {
+    content: "”";
+    font-size: 3em;
+    color: #4CAF50;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* Subtle Hover Effect on Sections */
+.about-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 2.4em;
+    }
+
+    .section-title {
+        font-size: 1.6em;
+    }
+
+    .mission-text, .vision-text {
+        font-size: 1em;
+    }
+
+    .header {
+        padding: 10px;
+    }
+}
