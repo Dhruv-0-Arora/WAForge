@@ -1,5 +1,5 @@
 import React from "react";
-import "../util/home.css";
+import "../styling/home.css";
 import imageMask from "../assets/image.jpeg"; // The image used as text mask
 import globePlane from "../assets/flight.png"; // The center image
 
