@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Complete from '../assets/FinishSurvey.gif'
+import { addCarbonSaved } from "../util/carbonTrackerUtil";
+import { setLastDate } from "../util/carbonTrackerUtil";
 
 export default function CarbonSurvey() {
   const [currentQuestion, setCurrentQuestion] = useState("Did you use a car/motorcycle yesterday?");
@@ -58,6 +60,9 @@ export default function CarbonSurvey() {
       setCurrentQuestion(nextQuestion);
     } else {
       setSurveyCompleted(true);
+      addCarbonSaved(savings); // Store the value in local storage
+      const date = new Date;
+      setLastDate(date);
     }
   };
 
@@ -88,6 +93,7 @@ export default function CarbonSurvey() {
             <img src = {Complete} width = {400} height = {600} alt="Congradulations!"></img>
           <h2 className="text-5xl font-bold text-gray-800 text-center">Daily Evaluation Completed!</h2>
           <p className="text-2xl text-gray-700 mt-6">You saved <span className="font-bold">{savings.toFixed(1)}</span> lbs of carbon!</p>
+          <a href="/" className="underline">Return to home!</a>
         </div>
       )}
     </div>

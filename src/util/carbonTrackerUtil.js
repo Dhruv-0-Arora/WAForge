@@ -25,6 +25,18 @@ export function addCarbonSaved(amount) {
     localStorage.setItem(CARBON_STORAGE_KEY, newCarbon.toString());
 }
 
+export function completedToday() {
+    const date = new Date();
+    const lastDate = new Date(localStorage.getItem("lastDate"));
+    if (date.getDate() !== lastDate.getDate()) {
+        localStorage.setItem("lastDate", date);
+        return false;
+    }
+    return true;
+}
+export function setLastDate(date) {
+    localStorage.setItem("lastDate", date);
+}
 /**
  * Resets the carbon saved value in local storage to 0.
  */

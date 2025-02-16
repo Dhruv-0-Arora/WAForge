@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PlaneTracker from "../pages/PlaneTracker";
 import { getHotel } from "../util/hotelUtil";
-
+import { getCarbonSaved } from "../util/carbonTrackerUtil";
+import { completedToday } from "../util/carbonTrackerUtil";
 // Gradient constants
 const GREEN_GRADIENT = "bg-gradient-to-br from-[#41E246] to-[#36B038]";
 const BLUE_GRADIENT = "bg-gradient-to-br from-[#4C9FDE] to-[#3372A3]";
@@ -47,7 +48,7 @@ export default function HomeView() {
                     Your carbon footprint matters.
                 </h1>
                 <p className="text-center text-7xl font-bold mt-2">
-                    -- lbs Carbon Saved
+                    {getCarbonSaved} lbs Carbon Saved
                 </p>
                 <div className="mt-4">
                     <p className="font-semibold text-2xl">Daily Tip:</p>
@@ -66,13 +67,14 @@ export default function HomeView() {
             <div
                 className={`${BLUE_GRADIENT} ${ROUNDED_LEFT} w-[60%] h-[30vh] flex flex-col items-center justify-center text-center text-white self-end`}
             >
-                <a
-                    href="/evaluation"
-                    className="text-center text-5xl font-bold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1"
-                >
-                    Complete your daily evaluation
-                </a>
-                <p className="text-2xl mt-2 text-semibold">Sustainable Facts</p>
+               {completedToday && (
+                <><a
+                        href="/evaluation"
+                        className="text-center text-5xl font-bold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1"
+                    >
+                        Complete your daily evaluation
+                    </a><p className="text-2xl mt-2 text-semibold">Sustainable Facts</p></>
+               )};
             </div>
 
             {/* Spacing */}
