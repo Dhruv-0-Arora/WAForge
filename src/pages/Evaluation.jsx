@@ -69,7 +69,7 @@ export default function CarbonSurvey() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-b from-green-300 to-green-500 p-4 mt-16">
-      <div className="h-[10vh]"></div>
+      <div className="h-[10vh]">
       <h2 className="text-5xl font-bold text-gray-800 mt-16 text-center w-full max-w-3xl">
         {currentQuestion}
         </h2>
