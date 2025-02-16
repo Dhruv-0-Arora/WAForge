@@ -1,88 +1,65 @@
-.envora {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 96px;
-    text-size-adjust: 100%;
-}
-
-.globalPlane {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.tagline {
-    font-weight: bold;
-    color: gray;
-    justify-self: center;
-    align-items: center;
-}
-
 /* Fade-in animation */
 .fade-in {
-    opacity: .5;
+    opacity: 0.5;
     transform: scale(0.97);
-    animation: fadeInAnim .5s ease-in forwards;
-  }
-  
-  @keyframes fadeInAnim {
+    animation: fadeInAnim 0.5s ease-in forwards;
+}
+
+@keyframes fadeInAnim {
     from {
-      opacity: .5;
-      transform: scale(0.97);
+        opacity: 0.5;
+        transform: scale(0.97);
     }
     to {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
-  }
-  
-  /* Fade-out animation */
-  .fade-out {
+}
+
+/* Fade-out animation */
+.fade-out {
     opacity: 1;
     transform: scale(1);
-    animation: fadeOutAnim .5s ease-out forwards;
-  }
-  
-  @keyframes fadeOutAnim {
+    animation: fadeOutAnim 0.5s ease-out forwards;
+}
+
+@keyframes fadeOutAnim {
     from {
-      opacity: 1;
-      transform: scale(1);
+        opacity: 1;
+        transform: scale(1);
     }
     to {
-      opacity: 0;
-      transform: scale(1.03);
+        opacity: 0;
+        transform: scale(1.03);
     }
-  }
+}
 
-  /* Fade-in animation for staggered effect */
+/* Fade-in animation for staggered effect */
 .staggered-box {
-  opacity: 0;
-  animation: fadeInStaggered 1s ease-out forwards;
+    opacity: 0;
+    animation: fadeInStaggered 1s ease-out forwards;
 }
 
 .staggered-box:nth-child(1) {
-  animation-delay: 0.2s;
+    animation-delay: 0.2s;
 }
 .staggered-box:nth-child(2) {
-  animation-delay: 0.4s;
+    animation-delay: 0.4s;
 }
 .staggered-box:nth-child(3) {
-  animation-delay: 0.6s;
+    animation-delay: 0.6s;
 }
 .staggered-box:nth-child(4) {
-  animation-delay: 0.8s;
+    animation-delay: 0.8s;
 }
 
 @keyframes fadeInStaggered {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
