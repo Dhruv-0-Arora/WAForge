@@ -5,8 +5,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
 import Home from "./ui/Home";
+import PlaneTracker from "./ui/PlaneTracker";
 
-const router = createBrowserRouter([{ path: "/", element: <Home /> }]);
+const router = createBrowserRouter([
+    { path: "/", element: <Home /> },
+    { path: "/tracker", element: <PlaneTracker /> },
+
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
