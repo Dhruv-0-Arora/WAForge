@@ -57,13 +57,13 @@ export default function ChatOverlay() {
                 <div>
                     {/* Fixed Chat Button: White circle with chat icon */}
                     <button
-                        className="fixed bottom-4 right-4 z-50 bg-white p-4 rounded-full shadow-lg hover:bg-gray-100 flex items-center justify-center"
+                        className="fixed bottom-6 right-6 z-50 bg-white p-6 rounded-full shadow-lg hover:bg-gray-100 flex items-center justify-center transition-all duration-300"
                         onClick={() => setIsChatOpen(true)}
                     >
                         {/* Inline SVG chat icon */}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-[10vh] h-[10vh] text-[#4771AF]"
+                            className="w-[12vh] h-[12vh] text-[#4771AF]"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -81,11 +81,11 @@ export default function ChatOverlay() {
                     {isChatOpen && (
                         <div className="fixed inset-0 flex items-center justify-center z-50">
                             {/* Chat Box (gray background, no overlay behind it) */}
-                            <div className="relative w-full max-w-md h-[20vh] bg-gray-200 rounded-xl shadow-lg">
+                            <div className="relative w-full max-w-md h-[60vh] bg-gray-200 rounded-xl shadow-lg overflow-hidden">
                                 {/* Close Button in top-right */}
                                 <button
                                     onClick={() => setIsChatOpen(false)}
-                                    className="absolute top-0 right-2 text-black text-2xl"
+                                    className="absolute top-2 right-2 text-black text-3xl hover:text-red-500"
                                 >
                                     &times;
                                 </button>
@@ -93,18 +93,18 @@ export default function ChatOverlay() {
                                 {/* Main Chat Layout */}
                                 <div className="flex flex-col h-full">
                                     {/* Title */}
-                                    <div className="text-center p-2 text-black font-bold text-lg">
-                                        CHAT
+                                    <div className="text-center p-3 text-black font-bold text-xl bg-[#4771AF] text-white">
+                                        Chat with Envora
                                     </div>
 
                                     {/* Scrollable messages area */}
-                                    <div className="flex flex-col overflow-y-auto px-4 pb-2 space-y-2">
+                                    <div className="flex flex-col overflow-y-auto px-4 pb-4 space-y-4 flex-grow">
                                         {chatMessages.map((msg, index) => {
                                             // For green messages, anchor left; for white, anchor right
                                             const bubbleClasses =
                                                 msg.type === "green"
-                                                    ? "bg-[#3CCB40] text-white px-4 py-2 rounded-md mb-2 w-[80%] self-start"
-                                                    : "bg-white text-black px-4 py-2 rounded-md mb-2 w-[80%] self-end ml-auto text-right";
+                                                    ? "bg-[#3CCB40] text-white px-6 py-3 rounded-xl mb-2 w-[85%] self-start"
+                                                    : "bg-white text-black px-6 py-3 rounded-xl mb-2 w-[85%] self-end ml-auto text-right";
 
                                             return (
                                                 <div
@@ -119,11 +119,11 @@ export default function ChatOverlay() {
 
                                     {/* Input bubble pinned at bottom */}
                                     <div className="p-4 mb-2 flex justify-center">
-                                        <div className="bg-white rounded-full px-4 py-2 shadow-md w-[80%]">
+                                        <div className="bg-white rounded-full px-6 py-3 shadow-md w-[85%]">
                                             <input
                                                 type="text"
-                                                className="bg-transparent outline-none text-sm p-2 w-full"
-                                                placeholder="Type here"
+                                                className="bg-transparent outline-none text-lg p-2 w-full"
+                                                placeholder="Type here..."
                                                 value={message}
                                                 onChange={(e) =>
                                                     setMessage(e.target.value)
