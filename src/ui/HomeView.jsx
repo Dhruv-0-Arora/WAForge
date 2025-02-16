@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PlaneTracker from "../pages/PlaneTracker";
+import { getHotel } from "../util/hotelUtil";
 
 // Gradient constants
 const GREEN_GRADIENT = "bg-gradient-to-br from-[#41E246] to-[#36B038]";
@@ -98,6 +99,12 @@ export default function HomeView() {
                 <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
                     Sustainable Sleeping
                 </h1>
+                <button
+                    className="text-center text-2xl font-semibold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent mt-2"
+                    onClick={getHotel}
+                >
+                    Learn More
+                </button>
             </div>
 
             {/* Footer */}
