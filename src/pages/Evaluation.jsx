@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const questionFlow = {
   "How many flights do you take per year?": {
-    options: ["0-2", "3-5", "6+"],
+    options: { "0-2": 1, "3-5": 3, "6+": 5 },
     next: {
       "0-2": "How many miles do you drive per week?",
       "3-5": "Do you use carbon offsets for flights?",
@@ -10,7 +10,7 @@ const questionFlow = {
     }
   },
   "How many miles do you drive per week?": {
-    options: ["0-10", "11-50", "50+"],
+    options: { "0-10": 1, "11-50": 3, "50+": 5 },
     next: {
       "0-10": "Do you use public transportation?",
       "11-50": "What type of vehicle do you primarily use?",
@@ -18,36 +18,38 @@ const questionFlow = {
     }
   },
   "Do you use carbon offsets for flights?": {
-    options: ["Yes", "No"],
+    options: { "Yes": 0, "No": 3 },
     next: {
       "Yes": "Do you actively try to reduce your carbon footprint?",
       "No": "What is your household's primary energy source?"
     }
   },
   "How often do you travel internationally?": {
-    options: ["Rarely", "Sometimes", "Frequently"],
+    options: { "Rarely": 1, "Sometimes": 3, "Frequently": 5 },
     next: {
       "Rarely": "How often do you eat meat?",
       "Sometimes": "What is your household's primary energy source?",
       "Frequently": "Do you actively try to reduce your carbon footprint?"
     }
-  },
-  // Add more questions as needed
+  }
 };
 
 export default function CarbonSurvey() {
   const [currentQuestion, setCurrentQuestion] = useState(Object.keys(questionFlow)[0]);
   const [answers, setAnswers] = useState({});
+  const [totalScore, setTotalScore] = useState(0);
 
   const handleAnswer = (answer) => {
     const newAnswers = { ...answers, [currentQuestion]: answer };
     setAnswers(newAnswers);
 
+    setTotalScore(totalScore + questionFlow[currentQuestion]?.options[answer]);
+
     const nextQuestion = questionFlow[currentQuestion]?.next[answer];
     if (nextQuestion) {
       setCurrentQuestion(nextQuestion);
     } else {
-      alert("Survey completed! Your responses: " + JSON.stringify(newAnswers, null, 2));
+      alert(`Survey completed! Your total carbon score is: ${totalScore}`);
     }
   };
 
@@ -58,7 +60,7 @@ export default function CarbonSurvey() {
       </h2>
       <div className="flex flex-col items-center justify-center flex-grow w-full max-w-xl">
         <div className="grid grid-cols-1 gap-6 w-full max-w-md mt-8">
-          {questionFlow[currentQuestion]?.options.map((option) => (
+          {Object.keys(questionFlow[currentQuestion]?.options || {}).map((option) => (
             <button
               key={option}
               className="bg-green-600 text-white py-4 px-6 text-lg rounded-lg hover:bg-green-700 transition duration-300 shadow-md"
@@ -68,6 +70,9 @@ export default function CarbonSurvey() {
             </button>
           ))}
         </div>
+      </div>
+      <div className="mb-8 text-gray-600 text-sm">
+        Current Score: {totalScore}
       </div>
     </div>
   );
