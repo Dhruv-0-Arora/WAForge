@@ -61,7 +61,7 @@ const PlaneTracker = () => {
                             type="text"
                             value={flightNumber}
                             onChange={(e) => setFlightNumber(e.target.value)}
-                            className="bg-transparent text-center text-white text-xl font-medium placeholder-gray-300 outline-none w-full"
+                            className="bg-transparent text-center text-black text-xl font-medium placeholder-gray-300 outline-none w-full"
                             placeholder="Enter your flight number (ex. AA123)"
                         />
                     </div>
