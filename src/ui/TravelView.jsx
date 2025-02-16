@@ -12,6 +12,7 @@ export default function TravelView() {
     const [isRecording, setIsRecording] = useState(false);
     const [carbonSaved, setCarbonSaved] = useState(0);
     const [distanceTraveled, setDistanceTraveled] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);  // Loading state for the spinner
     let trackingInterval = null;
 
     // Constants for CO2 emissions (kg CO2 per mile)
@@ -76,6 +77,16 @@ export default function TravelView() {
         }
     }, [isRecording]);
 
+    // Function to simulate flight info submission and loading state
+    const handleFlightSubmission = async () => {
+        setIsLoading(true);  // Show loading spinner
+        // Simulate fetching flight info (replace with actual API call)
+        setTimeout(() => {
+            setIsLoading(false);  // Hide loading spinner after the simulated delay
+            // Add code to handle flight info display here
+        }, 3000);  // Simulate 3 seconds delay
+    };
+
     return (
         <div className="min-h-screen flex flex-col items-center justify-center text-white p-6">
             <div className="bg-gray-100 m-4 p-6 rounded-md border-2 border-gray-500 flex flex-col gap-4">
@@ -114,6 +125,13 @@ export default function TravelView() {
                         <p className="text-lg mt-2 text-green-400">
                             Carbon Saved: {carbonSaved.toFixed(2)} kg CO₂
                         </p>
+                    </div>
+                )}
+
+                {/* Display Loading Spinner if data is being fetched */}
+                {isLoading && (
+                    <div className="flex justify-center items-center mt-6">
+                        <div className="spinner"></div>
                     </div>
                 )}
 
