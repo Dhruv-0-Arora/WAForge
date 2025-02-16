@@ -7,7 +7,7 @@ export default function OpenView() {
         <div className="fade-in flex justify-center items-center min-h-screen max-h-screen">
             <div className="inline-flex flex-col items-center justify-between w-auto mx-auto">
                 {/* Top spacing */}
-                <div className="h-[5vh]" />
+                <div className="h-[18vh]" />
 
                 {/* "ENVORA" with an image mask */}
                 <h1
