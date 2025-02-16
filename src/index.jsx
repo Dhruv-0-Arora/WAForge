@@ -4,9 +4,9 @@ import "./styling/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import Home from "./ui/Home";
+import HomeDesktop from "./ui/HomeDesktop";
 
-const router = createBrowserRouter([{ path: "/", element: <Home /> }]);
+const router = createBrowserRouter([{ path: "/", element: <HomeDesktop /> }]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
