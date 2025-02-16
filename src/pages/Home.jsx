@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styling/home.css";
 import OpenView from "../ui/OpenView";
 import HomeView from "../ui/HomeView";
+import TravelView from "../ui/TravelView";
 
 export default function Home() {
     const [showOld, setShowOld] = useState(true);
@@ -18,16 +19,36 @@ export default function Home() {
 
     return (
         <div>
-            {showOld && (
-                <div className={`fade ${fadingOut ? "fade-out" : "fade-in"}`}>
-                    <OpenView />
-                </div>
-            )}
-            {!showOld && (
-                <div className="fade fade-in">
-                    <HomeView />
-                </div>
-            )}
+            <div className="sm:hidden">
+                {showOld && (
+                    <div
+                        className={`fade ${fadingOut ? "fade-out" : "fade-in"}`}
+                    >
+                        <OpenView />
+                    </div>
+                )}
+                {!showOld && (
+                    <div className="fade fade-in">
+                        <HomeView />
+                    </div>
+                )}
+            </div>
+
+            {/* For mobile devices */}
+            <div className="hidden sm:block">
+                {showOld && (
+                    <div
+                        className={`fade ${fadingOut ? "fade-out" : "fade-in"}`}
+                    >
+                        <OpenView />
+                    </div>
+                )}
+                {!showOld && (
+                    <div className="fade fade-in">
+                        <TravelView />
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

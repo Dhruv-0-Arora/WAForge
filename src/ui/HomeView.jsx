@@ -62,7 +62,7 @@ export default function HomeView() {
                 <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
                     How do you fly?
                 </h1>
-                <div className="h-[10px]"></div>
+                <div className="h-[20px]"></div>
                 <PlaneTracker />
             </div>
 
