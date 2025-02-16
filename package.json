@@ -1,46 +1,53 @@
 {
-  "name": "waforge",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.0.6",
-    "@tailwindcss/vite": "^4.0.6",
-    "cra-template": "1.2.0",
-    "googleapis": "^144.0.0",
-    "loading-spinner": "^1.2.1",
-    "postcss": "^8.5.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.5"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "start": "vite"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.20",
-    "tailwindcss": "^4.0.6",
-    "vite": "^6.1.0",
-    "web-vitals": "^4.2.4"
-  }
+    "name": "waforge",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+        "@google/generative-ai": "^0.21.0",
+        "@tailwindcss/postcss": "^4.0.6",
+        "@tailwindcss/vite": "^4.0.6",
+        "amadeus": "^11.0.0",
+        "cors": "^2.8.5",
+        "cra-template": "1.2.0",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "googleapis": "^144.0.0",
+        "postcss": "^8.5.2",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^7.1.5",
+        "loading-spinner": "^1.2.1"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "start": "vite"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.3.4",
+        "autoprefixer": "^10.4.20",
+        "tailwindcss": "^4.0.6",
+        "vite": "^6.1.0",
+        "web-vitals": "^4.2.4"
+    }
+    
 }

@@ -3,6 +3,7 @@ import "../styling/home.css";
 import OpenView from "../ui/OpenView";
 import HomeView from "../ui/HomeView";
 import TravelView from "../ui/TravelView";
+import ChatOverlay from "../ui/ChatOverlay";
 
 export default function Home() {
     const [showOld, setShowOld] = useState(true);
@@ -18,7 +19,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div>
+        <div className="relative">
             <div className="hidden sm:block">
                 {showOld && (
                     <div
@@ -49,6 +50,8 @@ export default function Home() {
                     </div>
                 )}
             </div>
+
+            <ChatOverlay />
         </div>
     );
 }
