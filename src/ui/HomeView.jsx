@@ -30,6 +30,12 @@ const getRandomTips = () => {
 
 export default function HomeView() {
     const [dailyTips, setDailyTips] = useState([]);
+    const [carbon, setCarbon] = useState(0);
+
+    useEffect(() => {
+        // Update the carbon saved value when the component mounts
+        setCarbon(getCarbonSaved());
+    }, []);
 
     useEffect(() => {
         setDailyTips(getRandomTips()); // Set the daily tips when the component mounts
@@ -48,7 +54,7 @@ export default function HomeView() {
                     Your carbon footprint matters.
                 </h1>
                 <p className="text-center text-7xl font-bold mt-2">
-                    {getCarbonSaved} lbs Carbon Saved
+                    {carbon} lbs Carbon Saved
                 </p>
                 <div className="mt-4">
                     <p className="font-semibold text-2xl">Daily Tip:</p>
@@ -67,14 +73,20 @@ export default function HomeView() {
             <div
                 className={`${BLUE_GRADIENT} ${ROUNDED_LEFT} w-[60%] h-[30vh] flex flex-col items-center justify-center text-center text-white self-end`}
             >
-               {completedToday && (
-                <><a
-                        href="/evaluation"
-                        className="text-center text-5xl font-bold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1"
-                    >
-                        Complete your daily evaluation
-                    </a><p className="text-2xl mt-2 text-semibold">Sustainable Facts</p></>
-               )};
+                {completedToday && (
+                    <>
+                        <a
+                            href="/evaluation"
+                            className="text-center text-5xl font-bold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1"
+                        >
+                            Complete your daily evaluation
+                        </a>
+                        <p className="text-2xl mt-2 text-semibold">
+                            Sustainable Facts
+                        </p>
+                    </>
+                )}
+                ;
             </div>
 
             {/* Spacing */}
@@ -96,26 +108,45 @@ export default function HomeView() {
 
             {/* 4) Fourth Blue Bubble (rounded on left) */}
             <div
-                className={`${DARK_BLUE_GRADIENT} ${ROUNDED_LEFT} w-[60%] h-[40vh] flex flex-col items-center justify-center text-center text-white self-end`}
+                className={`${DARK_BLUE_GRADIENT} ${ROUNDED_LEFT} w-[60%] h-[40vh] flex flex-col items-center justify-center text-center text-white self-end p-4`}
             >
-                <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
-                    Sustainable Sleeping
-                </h1>
-                <button
-                    className="text-center text-2xl font-semibold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent mt-2"
-                    onClick={getHotel}
-                >
-                    Learn More
-                </button>
+                {nearestHotel ? (
+                    <>
+                        <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
+                            Most Sustainable Hotel Nearby
+                        </h1>
+                        <p className="text-2xl font-semibold mt-2">
+                            {nearestHotel.name}
+                        </p>
+                        <p className="text-lg mt-1">{nearestHotel.address}</p>
+                        <button
+                            className="text-center text-2xl font-semibold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent mt-4"
+                            onClick={fetchNearestHotel}
+                        >
+                            {loading ? "Refreshing..." : "Refresh"}
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
+                            Sustainable Sleeping
+                        </h1>
+                        <button
+                            className="text-center text-2xl font-semibold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent mt-2"
+                            onClick={fetchNearestHotel}
+                        >
+                            {loading ? "Loading..." : "Learn More"}
+                        </button>
+                    </>
+                )}
             </div>
 
             {/* Footer */}
-            <footer className="flex justify-between items-center p-4">
+            <footer className="flex justify-between items-center p-4 m-4">
                 <a>© ENVORA</a>
                 <a href="/about" className="underline">
                     About
                 </a>
-                <div className="l-[90px]"></div>
             </footer>
         </div>
     );

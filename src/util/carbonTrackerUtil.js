@@ -20,6 +20,12 @@ export function addCarbonSaved(amount) {
         return;
     }
 
+    console.log(amount);
+
+    if (getCarbonSaved() == null) {
+        localStorage.setItem(CARBON_STORAGE_KEY, 0);
+    }
+
     const currentCarbon = getCarbonSaved();
     const newCarbon = currentCarbon + Math.floor(amount);
     localStorage.setItem(CARBON_STORAGE_KEY, newCarbon.toString());
