@@ -109,10 +109,11 @@ export default function HomeView() {
 
             {/* Footer */}
             <footer className="flex justify-between items-center p-4">
-                <p>© ENVORA</p>
+                <a>© ENVORA</a>
                 <a href="/about" className="underline">
-                    about
+                    About
                 </a>
+                <div className="l-[90px]"></div>
             </footer>
         </div>
     );
