@@ -19,7 +19,7 @@ export default function Home() {
 
     return (
         <div>
-            <div className="invisible lg:visible">
+            <div className="hidden sm:block">
                 {showOld && (
                     <div
                         className={`fade ${fadingOut ? "fade-out" : "fade-in"}`}
@@ -35,7 +35,7 @@ export default function Home() {
             </div>
 
             {/* For mobile devices */}
-            <div className="hidden sm: block">
+            <div className="block sm:hidden">
                 {showOld && (
                     <div
                         className={`fade ${fadingOut ? "fade-out" : "fade-in"}`}
