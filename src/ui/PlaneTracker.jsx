@@ -8,14 +8,18 @@ const fetchFlightData = async (flightNumber) => {
     );
     const data = await response.json();
     console.log('API Response:', data);
-    const flight = data.data[0]; 
+    var flight = data.data[0]; 
     if (!data || !data.data || !Array.isArray(data.data) || data.data.length === 0) {
-      console.error("Invalid API response or no flight data found.");
-      return null;
+        console.error("Invalid API response or no flight data found.");
+        return null;
     }
     if (!flight.aircraft || !flight.aircraft.iata) {
         console.error("No aircraft IATA code found in API response.");
-        return null;
+        flight = data.data[1]; 
+        if (!data || !data.data || !Array.isArray(data.data) || data.data.length === 0) {
+            console.error("Invalid API response or no flight data found.");
+            return null;
+        }
     }
     return flight.aircraft.iata;
   };
@@ -66,7 +70,7 @@ const PlaneTracker = () => {
     const [flightData, setFlightData] = useState(null);
     const [Aircraft, setAircraft] = useState(null);
     const [Category, setCategory] = useState(null);
-    const [Carbon, setCarbon] = useState(null);
+    const [Carbon, setCarbon] = useState("");
     const [showCarbon, setShowCarbon] = useState(false);
 
     const handleSearch = async () => {
@@ -94,32 +98,39 @@ const PlaneTracker = () => {
         }
     
         const carbon = await getCarbon(category.result);
-        setCarbon(carbon.results);
+        setCarbon(Math.floor(carbon.results));
     
         setShowCarbon(true);
     };
     
-
     return (
-        <div>
-        <input
-            type="text"
-            value={flightNumber}
-            onChange={(e) => setFlightNumber(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-        {showCarbon && (
-            <div>
-                <p>Plane Model: {flightData}</p>
-                <p>Airplane: {Aircraft} </p>
-                <p>Category: {Category}</p>
-                <p>Carbon Emission: {Carbon}</p>
+        <div className="max-w-md mx-auto p-6 bg-white rounded-xl shadow-md space-y-4">
+            <h1 className="text-2xl font-bold text-center">Flight Carbon Tracker</h1>
+            <div className="flex space-x-2">
+                <input
+                    type="text"
+                    value={flightNumber}
+                    onChange={(e) => setFlightNumber(e.target.value)}
+                    className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter Flight Number"
+                />
+                <button
+                    onClick={handleSearch}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                >
+                    Search
+                </button>
             </div>
-        )}
-    </div>
+            {showCarbon && (
+                <div className="bg-gray-100 p-4 rounded-md">
+                    <p><strong>Plane Model:</strong> {flightData}</p>
+                    <p><strong>Airplane:</strong> {Aircraft}</p>
+                    <p><strong>Category:</strong> {Category}</p>
+                    <p><strong>Carbon Emission:</strong> {Carbon}</p>
+                </div>
+            )}
+        </div>
     );
-
-  
 };
 
 export default PlaneTracker;
