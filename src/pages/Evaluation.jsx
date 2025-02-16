@@ -69,11 +69,10 @@ export default function CarbonSurvey() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-b from-green-300 to-green-500 p-4 mt-16">
-      <div className="h-[10vh]">
+      <div className="h-[10vh]"></div>
       <h2 className="text-5xl font-bold text-gray-800 mt-16 text-center w-full max-w-3xl">
         {currentQuestion}
-        </h2>
-      </div>
+      </h2>
       <div className="flex flex-col items-center justify-center flex-grow w-full max-w-xl">
         <div className="grid grid-cols-1 gap-6 w-full max-w-md mt-8">
           {currentQuestion === "Did you use a car/motorcycle yesterday?" && (
