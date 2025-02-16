@@ -10,7 +10,7 @@ const DARK_BLUE_GRADIENT = "bg-gradient-to-br from-[#4771AF] to-[#22416F]";
 const ROUNDED_RIGHT = "rounded-tr-[100px] rounded-br-[100px]";
 const ROUNDED_LEFT = "rounded-tl-[100px] rounded-bl-[100px]";
 
-function HomeDesktop() {
+export default function HomeView() {
     return (
         <div className="min-h-screen w-full overflow-y-scroll bg-gray-100 flex flex-col gap-4">
             {/* Top spacing */}
@@ -92,5 +92,3 @@ function HomeDesktop() {
         </div>
     );
 }
-
-export default HomeDesktop;

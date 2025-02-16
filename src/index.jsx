@@ -4,9 +4,9 @@ import "./styling/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
-import Home from "./ui/Home";
-import PlaneTracker from "./ui/PlaneTracker";
-import About from "./ui/About"; // Ensure this is imported
+import Home from "./pages/Home";
+import PlaneTracker from "./pages/PlaneTracker";
+import About from "./pages/About"; // Ensure this is imported
 
 // Define routes
 const router = createBrowserRouter([
