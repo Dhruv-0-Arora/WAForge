@@ -106,41 +106,7 @@ export default function HomeView() {
             {/* Spacing */}
             <div className="h-[15px]" />
 
-            {/* 4) Fourth Blue Bubble (rounded on left) */}
-            <div
-                className={`${DARK_BLUE_GRADIENT} ${ROUNDED_LEFT} w-[60%] h-[40vh] flex flex-col items-center justify-center text-center text-white self-end p-4`}
-            >
-                {nearestHotel ? (
-                    <>
-                        <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
-                            Most Sustainable Hotel Nearby
-                        </h1>
-                        <p className="text-2xl font-semibold mt-2">
-                            {nearestHotel.name}
-                        </p>
-                        <p className="text-lg mt-1">{nearestHotel.address}</p>
-                        <button
-                            className="text-center text-2xl font-semibold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent mt-4"
-                            onClick={fetchNearestHotel}
-                        >
-                            {loading ? "Refreshing..." : "Refresh"}
-                        </button>
-                    </>
-                ) : (
-                    <>
-                        <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
-                            Sustainable Sleeping
-                        </h1>
-                        <button
-                            className="text-center text-2xl font-semibold underline bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent mt-2"
-                            onClick={fetchNearestHotel}
-                        >
-                            {loading ? "Loading..." : "Learn More"}
-                        </button>
-                    </>
-                )}
-            </div>
-
+            
             {/* Footer */}
             <footer className="flex justify-between items-center p-4 m-4">
                 <a>© ENVORA</a>
