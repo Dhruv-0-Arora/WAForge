@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PlaneTracker from "../pages/PlaneTracker";
 
 // Gradient constants
@@ -11,7 +11,28 @@ const DARK_BLUE_GRADIENT = "bg-gradient-to-br from-[#4771AF] to-[#22416F]";
 const ROUNDED_RIGHT = "rounded-tr-[100px] rounded-br-[100px]";
 const ROUNDED_LEFT = "rounded-tl-[100px] rounded-bl-[100px]";
 
+// List of tips to show randomly
+const tips = [
+    "Going animal product free",
+    "Recycle, reduce, and reuse",
+    "Reducing plastic use",
+    "Walking or biking instead of driving",
+    "Composting organic waste",
+];
+
+// Function to shuffle and pick two random tips
+const getRandomTips = () => {
+    const shuffled = [...tips].sort(() => 0.5 - Math.random()); // Shuffle the array
+    return shuffled.slice(0, 2); // Get the first two items
+};
+
 export default function HomeView() {
+    const [dailyTips, setDailyTips] = useState([]);
+
+    useEffect(() => {
+        setDailyTips(getRandomTips()); // Set the daily tips when the component mounts
+    }, []);
+
     return (
         <div className="min-h-screen w-full overflow-y-scroll bg-gray-100 flex flex-col gap-4">
             {/* Top spacing */}
@@ -30,8 +51,9 @@ export default function HomeView() {
                 <div className="mt-4">
                     <p className="font-semibold text-2xl">Daily Tip:</p>
                     <ul className="text-2xl mt-2 space-y-1">
-                        <li>Driving on public transport</li>
-                        <li>Going meat free</li>
+                        {dailyTips.map((tip, index) => (
+                            <li key={index}>{tip}</li>
+                        ))}
                     </ul>
                 </div>
             </div>
