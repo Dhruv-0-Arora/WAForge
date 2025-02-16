@@ -55,9 +55,11 @@ export default function CarbonSurvey() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gradient-to-b from-green-300 to-green-500 p-4">
-      <h2 className="text-5xl font-bold text-gray-800 mt-16 text-center w-full max-w-3xl">
+    <div className="mt-12">
+        <h2 className="text-5xl font-bold text-gray-800 bg-black">
         {currentQuestion}
-      </h2>
+        </h2>
+      </div>
       <div className="flex flex-col items-center justify-center flex-grow w-full max-w-xl">
         <div className="grid grid-cols-1 gap-6 w-full max-w-md mt-8">
           {Object.keys(questionFlow[currentQuestion]?.options || {}).map((option) => (
