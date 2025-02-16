@@ -1,4 +1,5 @@
 import React from "react";
+import PlaneTracker from "../pages/PlaneTracker";
 
 // Gradient constants
 const GREEN_GRADIENT = "bg-gradient-to-br from-[#41E246] to-[#36B038]";
@@ -56,18 +57,13 @@ export default function HomeView() {
 
             {/* 3) Third Green Bubble (rounded on left) */}
             <div
-                className={`${DARK_GREEN_GRADIENT} ${ROUNDED_RIGHT} w-[60%] h-[30vh] flex flex-col items-center justify-center text-center text-white`}
+                className={`${DARK_GREEN_GRADIENT} ${ROUNDED_RIGHT} w-[60%] h-[40vh] flex flex-col items-center justify-center text-center text-white`}
             >
                 <h1 className="text-center text-5xl font-bold bg-gradient-to-tr from-[#ABB0AC] to-[#FEFEFE] bg-clip-text text-transparent leading-[1.2] pb-1">
                     How do you fly?
                 </h1>
-                <div className="mt-4">
-                    <input
-                        type="text"
-                        placeholder="Enter flight number"
-                        className="px-4 py-2 rounded focus:outline-none text-black"
-                    />
-                </div>
+                <div className="h-[10px]"></div>
+                <PlaneTracker />
             </div>
 
             {/* Spacing */}
