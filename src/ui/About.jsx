@@ -1,6 +1,7 @@
+import React from "react";
 import "../styling/about.css";
 
-function About() {
+const About = () => {
     return (
         <div className="about-container">
             <div className="header">
@@ -30,6 +31,6 @@ function About() {
             </div>
         </div>
     );
-}
+};
 
 export default About;

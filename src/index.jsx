@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import reportWebVitals from "./reportWebVitals";
 import Home from "./ui/Home";
+import About from "./ui/About";
 import PlaneTracker from "./ui/PlaneTracker";
 
 const router = createBrowserRouter([

@@ -20,3 +20,39 @@
     justify-self: center;
     align-items: center;
 }
+
+/* Fade-in animation */
+.fade-in {
+    opacity: .5;
+    transform: scale(0.97);
+    animation: fadeInAnim .5s ease-in forwards;
+  }
+  
+  @keyframes fadeInAnim {
+    from {
+      opacity: .5;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Fade-out animation */
+  .fade-out {
+    opacity: 1;
+    transform: scale(1);
+    animation: fadeOutAnim .5s ease-out forwards;
+  }
+  
+  @keyframes fadeOutAnim {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1.03);
+    }
+  }
